@@ -1,7 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 class ObjectRepo {
 
@@ -43,18 +43,35 @@ class ObjectRepo {
 		return item_repo.get(itemno);
 	}
 
+	public List<Map.Entry<Integer, Item>> getItems() {
+		return new ArrayList<>(item_repo.entrySet());
+	}
+
+
 	public Customer getCustomer(String custmr) {
 		return customer_repo.get(custmr);
 	}
 
-	public User getUser(String username) {
-		if (user_repo.contains(o)) {
-			return user_repo.get(username);
-		}
+	public List<Map.Entry<String, Customer>> getCustomers() {
+		return new ArrayList<>(customer_repo.entrySet());
 	}
+
+
+	public User getUser(String username) {
+		return user_repo.get(username);
+	}
+
+	public List<Map.Entry<String, User>> getUsers() {
+		return new ArrayList<>(user_repo.entrySet());
+	}
+
 
 	public Order getInvoice(int invno) {
 		return order_repo.get(invno);
+	}
+
+	public List<Map.Entry<Integer, Order>> getInvoices() {
+		return new ArrayList<>(order_repo.entrySet());
 	}
 
 }
